@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Detail</title>
+  <link href="/css/main.css" rel="stylesheet">
+</head>
+<body>
+<ul th:each="p : ${patient}">
+  <li>
+    <label class="label_list">Name:
+      <p th:text="${p.name}"></p>
+    </label>
+    <label class="label_list">Surname:
+      <p th:text="${p.surname}"></p>
+    </label>
+    <label class="label_list">Birthday:
+      <p th:text="${p.birthday}"></p>
+    </label>
+    <label class="label_list">Address:
+      <p th:text="${p.address}"></p>
+    </label>
+    <label class="label_list">Phone:
+      <p th:text="${p.phone}"></p>
+    </label>
+    <label class="label_list">Number Medical Card:
+      <p th:text="${p.numberMedicalCard}"></p>
+    </label>
+    <label class="label_list">Medical History:
+      <p th:text="${p.medicalHistory}"></p>
+    </label>
+    <label class="label_list">Marital Status:
+      <p th:text="${p.maritalStatus}"></p>
+    </label>
+    <label class="label_list">Profession:
+      <p th:text="${p.profession}"></p>
+    </label>
+    <label class="label_list">Blood Type And Rh Factor:
+      <p th:text="${p.bloodTypeAndRhFactor}"></p>
+    </label>
+    <label class="label_list">Information About Allergic Reactions:
+      <p th:text="${p.informationAboutAllergicReactions}"></p>
+    </label>
+    <label class="label_list">Current Diagnosis:
+      <p th:text="${p.currentDiagnosis}"></p>
+    </label>
+    <label class="label_list">List Of Prescribed Medications:
+      <p th:text="${p.listOfPrescribedMedications}"></p>
+    </label>
+  </li>
+</ul>
+<form th:each="p : ${patient}" action="/addPatient" method="post" enctype="application/json">
+  <label for="name">Name: </label>
+  <input type="text" id="name" name="name" th:value="${p.name}"><br>
+
+  <label for="surname">Surname: </label>
+  <input type="text" id="surname" name="surname" th:value="${p.surname}"><br>
+
+  <label for="birthday">Birthday: </label>
+  <input type="date" id="birthday" name="birthday" th:value="${p.birthday}"><br>
+
+  <label for="address">Address: </label>
+  <input type="text" id="address" name="address" th:value="${p.address}"><br>
+
+  <label for="phone">Phone: </label>
+  <input type="text" id="phone" name="phone" th:value="${p.phone}"><br>
+
+  <label for="numberMedicalCard">Number Medical Card: </label>
+  <input type="text" id="numberMedicalCard" name="numberMedicalCard" th:value="${p.numberMedicalCard}"><br>
+
+  <label for="medicalHistory">Medical History: </label>
+  <input type="text" id="medicalHistory" name="medicalHistory" th:value="${p.medicalHistory}"><br>
+
+  <label for="maritalStatus">Marital Status: </label>
+  <input type="text" id="maritalStatus" name="maritalStatus" th:value="${p.maritalStatus}"><br>
+
+  <label for="profession">Profession: </label>
+  <input type="text" id="profession" name="profession" th:value="${p.profession}"><br>
+
+  <label for="bloodTypeAndRhFactor">Blood Type And Rh Factor: </label>
+  <input type="text" id="bloodTypeAndRhFactor" name="bloodTypeAndRhFactor" th:value="${p.bloodTypeAndRhFactor}"><br>
+
+  <label for="informationAboutAllergicReactions">Information About Allergic Reactions: </label>
+  <input type="text" id="informationAboutAllergicReactions" name="informationAboutAllergicReactions" th:value="${p.informationAboutAllergicReactions}"><br>
+
+  <label for="currentDiagnosis">Current Diagnosis: </label>
+  <input type="text" id="currentDiagnosis" name="currentDiagnosis" th:value="${p.currentDiagnosis}"><br>
+
+  <label for="listOfPrescribedMedications">List Of Prescribed Medications: </label>
+  <input type="text" id="listOfPrescribedMedications" name="listOfPrescribedMedications" th:value="${p.listOfPrescribedMedications}"><br>
+
+  <button type="submit">Submit</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+<div >
+<form action="/addPatient" method="post" enctype="application/json">
+    <label for="name">Name: </label>
+    <input type="text" id="name" name="name"><br>
+
+    <label for="surname">Surname: </label>
+    <input type="text" id="surname" name="surname"><br>
+
+    <label for="birthday">Birthday: </label>
+    <input type="date" id="birthday" name="birthday"><br>
+
+    <label for="address">Address: </label>
+    <input type="text" id="address" name="address"><br>
+
+    <label for="phone">Phone: </label>
+    <input type="text" id="phone" name="phone"><br>
+
+    <label for="numberMedicalCard">Number Medical Card: </label>
+    <input type="text" id="numberMedicalCard" name="numberMedicalCard"><br>
+
+    <label for="medicalHistory">Medical History: </label>
+    <input type="text" id="medicalHistory" name="medicalHistory"><br>
+
+    <label for="maritalStatus">Marital Status: </label>
+    <input type="text" id="maritalStatus" name="maritalStatus"><br>
+
+    <label for="profession">Profession: </label>
+    <input type="text" id="profession" name="profession"><br>
+
+    <label for="bloodTypeAndRhFactor">Blood Type And Rh Factor: </label>
+    <input type="text" id="bloodTypeAndRhFactor" name="bloodTypeAndRhFactor"><br>
+
+    <label for="informationAboutAllergicReactions">Information About Allergic Reactions: </label>
+    <input type="text" id="informationAboutAllergicReactions" name="informationAboutAllergicReactions"><br>
+
+    <label for="currentDiagnosis">Current Diagnosis: </label>
+    <input type="text" id="currentDiagnosis" name="currentDiagnosis"><br>
+
+    <label for="listOfPrescribedMedications">List Of Prescribed Medications: </label>
+    <input type="text" id="listOfPrescribedMedications" name="listOfPrescribedMedications"><br>
+
+    <button type="submit">Submit</button>
+</form>
+    <ul th:each="p : ${patientsList}">
+        <a th:href="@{/patientDetail/{id}(id = ${p.id})}">
+            <li>
+                <label class="label_list">Name:
+                    <p th:text="${p.name}"></p>
+                </label>
+                <label class="label_list">Surname:
+                    <p th:text="${p.surname}"></p>
+                </label>
+                <label class="label_list">Birthday:
+                    <p th:text="${p.birthday}"></p>
+                </label>
+                <label class="label_list">Address:
+                    <p th:text="${p.address}"></p>
+                </label>
+                <label class="label_list">Phone:
+                    <p th:text="${p.phone}"></p>
+                </label>
+                <label class="label_list">Number Medical Card:
+                    <p th:text="${p.numberMedicalCard}"></p>
+                </label>
+            </li>
+        </a>
+    </ul>
+</div>
+</body>
+</html>
