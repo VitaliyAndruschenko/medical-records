@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Title</title>
+  <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+<div>
+  <ul>
+    <li>
+      <a>Главная</a>
+    </li>
+    <li>
+      <a th:href="@{/main}">Регистрация нового пациента</a>
+    </li>
+    <li>
+      <a th:href="@{/doctorAppointment}">Запись пациента на прием</a>
+    </li>
+  </ul>
+</div>
+</body>
+</html>

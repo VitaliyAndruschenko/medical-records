@@ -49,6 +49,14 @@
 
     <button type="submit">Submit</button>
 </form>
+    <div>
+        <form method="get" th:action="@{/searchPatientBySurname}">
+            <label for="search">List Of Prescribed Medications: </label>
+            <input type="text" id="search" name="search" placeholder="Write surname"><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
     <ul th:each="p : ${patientsList}">
         <a th:href="@{/patientDetail/{id}(id = ${p.id})}">
             <li>

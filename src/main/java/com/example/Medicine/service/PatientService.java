@@ -22,4 +22,13 @@ public class PatientService {
     public Patient getPatientById(Long id) {
         return patientDAO.getPatientById(id);
     }
+
+    public void updatePatient(Long id, Patient patient) {
+        Patient patient1 = getPatientById(id);
+        patient.setId(patient1.getId());
+        patientDAO.addPatient(patient);
+    }
+    public List<Patient> getPatientBySurnameIsContaining(String surname) {
+        return patientDAO.getPatientBySurnameIsContaining(surname);
+    }
 }

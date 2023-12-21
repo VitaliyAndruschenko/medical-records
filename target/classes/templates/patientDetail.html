@@ -47,12 +47,9 @@
     <label class="label_list">List Of Prescribed Medications:
       <p th:text="${p.listOfPrescribedMedications}"></p>
     </label>
-    <a th:href="@{/update}">
-      <button type="button">Update</button>
-    </a>
   </li>
 </ul>
-<form th:each="p : ${patient}" action="/addPatient" method="post" enctype="application/json">
+<form th:each="p : ${patient}" th:action="@{/updatePatient/{id}(id = ${p.id})}" method="post" enctype="application/json">
   <label for="name">Name: </label>
   <input type="text" id="name" name="name" th:value="${p.name}"><br>
 

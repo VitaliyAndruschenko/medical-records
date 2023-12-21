@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor's appointment</title>
+</head>
+<body>
+<form method="post" th:action="@{/addAppointment}">
+    <label for="name">Name: </label>
+    <input type="text" id="name" name="name"><br>
+
+    <label for="surName">Surname: </label>
+    <input type="text" id="surName" name="surName"><br>
+
+    <label for="date">Date appointment: </label>
+    <input type="date" id="date" name="date"><br>
+
+    <label for="time">Time appointment: </label>
+    <input type="time" id="time" name="time"><br>
+
+    <label for="reason">The reason for the appointment: </label>
+    <input type="text" id="reason" name="reason"><br>
+
+    <button type="submit">Submit</button>
+</form>
+<ul th:each="a : ${appointmentList}">
+    <a th:href="@{/appointmentDetail/{id}(id = ${a.id})}">
+        <li>
+            <label class="label_list">Name:
+                <p th:text="${a.name}"></p>
+            </label>
+            <label class="label_list">Surname:
+                <p th:text="${a.surName}"></p>
+            </label>
+            <label class="label_list">Date appointment:
+                <p th:text="${a.date}"></p>
+            </label>
+            <label class="label_list">Time appointment:
+                <p th:text="${a.time}"></p>
+            </label>
+            <label class="label_list">Reason appointment:
+                <p th:text="${a.reason}"></p>
+            </label>
+        </li>
+    </a>
+</ul>
+</body>
+</html>

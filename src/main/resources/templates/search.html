@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Patient</title>
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+<ul th:each="p : ${searchListBySurname}">
+    <a th:href="@{/patientDetail/{id}(id = ${p.id})}">
+        <li>
+            <label class="label_list">Name:
+                <p th:text="${p.name}"></p>
+            </label>
+            <label class="label_list">Surname:
+                <p th:text="${p.surname}"></p>
+            </label>
+            <label class="label_list">Birthday:
+                <p th:text="${p.birthday}"></p>
+            </label>
+            <label class="label_list">Address:
+                <p th:text="${p.address}"></p>
+            </label>
+            <label class="label_list">Phone:
+                <p th:text="${p.phone}"></p>
+            </label>
+            <label class="label_list">Number Medical Card:
+                <p th:text="${p.numberMedicalCard}"></p>
+            </label>
+        </li>
+    </a>
+</ul>
+</body>
+</html>

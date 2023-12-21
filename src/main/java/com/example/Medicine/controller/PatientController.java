@@ -4,10 +4,8 @@ import com.example.Medicine.model.Patient;
 import com.example.Medicine.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,14 +17,20 @@ public class PatientController {
     public List<Patient> getListPatient() {
         return patientService.getListPatient();
     }
-    @GetMapping("/")
+    @GetMapping("/main")
     public String getMain() {
         return "main";
     }
     @PostMapping("/addPatient")
     private String addPatient(@ModelAttribute Patient patient) {
         patientService.addPatient(patient);
-        return "redirect:/";
+        return "redirect:/main";
+    }
+
+    @GetMapping("/searchPatientBySurname")
+    private String getListPatientBySurnameIsContaining(@RequestParam("search") String surname, Model model) {
+        model.addAttribute("searchListBySurname", patientService.getPatientBySurnameIsContaining(surname));
+        return "search";
     }
 
 }

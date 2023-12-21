@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment Detail</title>
+</head>
+<body>
+<ul th:each="a : ${appointment}">
+  <li>
+    <label class="label_list">Name:
+      <p th:text="${a.name}"></p>
+    </label>
+    <label class="label_list">Surname:
+      <p th:text="${a.surName}"></p>
+    </label>
+    <label class="label_list">Date:
+      <p th:text="${a.date}"></p>
+    </label>
+    <label class="label_list">Time:
+      <p th:text="${a.time}"></p>
+    </label>
+    <label class="label_list">Reason:
+      <p th:text="${a.reason}"></p>
+    </label>
+  </li>
+</ul>
+<form th:each="a : ${appointment}" th:action="@{/updateAppointment/{id}(id = ${a.id})}" method="post" enctype="application/json">
+  <label for="name">Name: </label>
+  <input type="text" id="name" name="name" th:value="${a.name}"><br>
+
+  <label for="surname">Surname: </label>
+  <input type="text" id="surname" name="surName" th:value="${a.surName}"><br>
+
+  <label for="date">Date: </label>
+  <input type="date" id="date" name="date" th:value="${a.date}"><br>
+
+  <label for="time">Time: </label>
+  <input type="time" id="time" name="address" th:value="${a.time}"><br>
+
+  <label for="reason">Reason: </label>
+  <input type="text" id="reason" name="reason" th:value="${a.reason}"><br>
+
+  <button type="submit">Submit</button>
+</form>
+</body>
+</html>

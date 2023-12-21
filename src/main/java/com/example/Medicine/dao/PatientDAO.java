@@ -22,4 +22,7 @@ public class PatientDAO {
     public Patient getPatientById(Long id) {
         return patientRepository.getReferenceById(id);
     }
+    public List<Patient> getPatientBySurnameIsContaining(String surname) {
+        return patientRepository.findAllBySurnameIsContaining(surname);
+    }
 }

@@ -49,7 +49,7 @@
     </label>
   </li>
 </ul>
-<form th:each="p : ${patient}" action="/addPatient" method="post" enctype="application/json">
+<form th:each="p : ${patient}" th:action="@{/updatePatient/{id}(id = ${p.id})}" method="post" enctype="application/json">
   <label for="name">Name: </label>
   <input type="text" id="name" name="name" th:value="${p.name}"><br>
 
