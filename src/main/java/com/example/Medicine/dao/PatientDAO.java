@@ -14,15 +14,16 @@ public class PatientDAO {
     public void addPatient(Patient patient) {
         patientRepository.save(patient);
     }
-
     public List<Patient> getListPatient() {
         return patientRepository.findAll();
     }
-
     public Patient getPatientById(Long id) {
         return patientRepository.getReferenceById(id);
     }
     public List<Patient> getPatientBySurnameIsContaining(String surname) {
         return patientRepository.findAllBySurnameIsContaining(surname);
+    }
+    public Patient getPatientBySurname(String surname) {
+        return patientRepository.findBySurname(surname);
     }
 }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MedicalResearch</title>
+</head>
+<body>
+<form action="/addMedicalResearch" method="post" enctype="application/json">
+    <label for="nameResearch">Name Research: </label>
+    <input type="text" id="nameResearch" name="nameResearch"><br>
+
+    <label for="periodOfExecution">Period Of Execution: </label>
+    <input type="date" id="periodOfExecution" name="periodOfExecution"><br>
+
+    <label for="timeOfExecution">Period Of Execution: </label>
+    <input type="time" id="timeOfExecution" name="periodOfExecution"><br>
+
+    <label for="necessaryEquipment">Necessary Equipment: </label>
+    <input type="text" id="necessaryEquipment" name="necessaryEquipment"><br>
+
+    <label for="surname">Surname patient: </label>
+    <input type="text" id="surname" name="surname"><br>
+
+    <button type="submit">Submit</button>
+</form>
+<ul th:each="m : ${medicalResearchList}">
+    <a th:href="@{/patientDetail/{id}(id = ${m.id})}">
+        <li>
+            <label class="label_list">Name Research:
+                <p th:text="${m.nameResearch}"></p>
+            </label>
+            <label class="label_list">Date Of Execution:
+                <p th:text="${m.dateOfExecution}"></p>
+            </label>
+            <label class="label_list">Time patient:
+                <p th:text="${m.timeOfExecution}"></p>
+            </label>
+            <label class="label_list">Status patient:
+                <p th:text="${m.statusResearch}"></p>
+            </label>
+        </li>
+    </a>
+</ul>
+</body>
+</html>

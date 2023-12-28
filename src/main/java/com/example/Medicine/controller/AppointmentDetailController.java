@@ -20,7 +20,6 @@ public class AppointmentDetailController {
         model.addAttribute("appointment", appointmentService.getAppointmentDetail(id));
         return "appointmentDetail";
     }
-
     @PostMapping("/updateAppointment/{id}")
     public String updateAppointment(@PathVariable("id") Long id, @ModelAttribute Appointment appointment) {
         appointmentService.updateAppointment(id, appointment);

@@ -1,15 +1,13 @@
 package com.example.Medicine.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -32,4 +30,6 @@ public class Patient {
     private String informationAboutAllergicReactions;
     private String currentDiagnosis;
     private String listOfPrescribedMedications;
+    @ManyToMany(mappedBy = "patientList")
+    List<MedicalResearch> medicalResearch;
 }
