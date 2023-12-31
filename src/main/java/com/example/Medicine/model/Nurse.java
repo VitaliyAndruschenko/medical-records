@@ -13,6 +13,8 @@ public class Nurse {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String name;
+    private String surname;
     private String username;
     private String email;
     private String password;
@@ -25,14 +27,18 @@ public class Nurse {
                     name = "role_id", referencedColumnName = "id"))
     private Collection<Role> roles;
 
-    public Nurse(String username, String email, String password, Collection<Role> roles) {
+    public Nurse(String name, String surname, String username, String email, String password, Collection<Role> roles) {
+        this.name = name;
+        this.surname = surname;
         this.username = username;
         this.email = email;
         this.password = password;
         this.roles = roles;
     }
 
-    public Nurse(String username, String email, String password) {
+    public Nurse(String name, String surname, String username, String email, String password) {
+        this.name = name;
+        this.surname = surname;
         this.username = username;
         this.email = email;
         this.password = password;

@@ -50,7 +50,9 @@ public class SetupDataLoader implements
         List<Privilege> adminPrivileges = Arrays.asList(
                 readPrivilege, writePrivilege);
         createRoleIfNotFound("ROLE_ADMIN", adminPrivileges);
+        createRoleIfNotFound("ROLE_DOCTOR", Arrays.asList(readPrivilege));
         createRoleIfNotFound("ROLE_NURSE", Arrays.asList(readPrivilege));
+
 
         Collection<Role> roleCollection = new ArrayList<>();
         Role adminRole = roleRepository.findByName("ROLE_ADMIN");
