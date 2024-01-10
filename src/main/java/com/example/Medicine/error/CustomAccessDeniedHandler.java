@@ -1,0 +1,26 @@
+package com.example.Medicine.error;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.access.AccessDeniedHandler;
+
+import java.io.IOException;
+import java.util.logging.Logger;
+
+public class CustomAccessDeniedHandler implements AccessDeniedHandler {
+
+    public static final Logger Log = Logger.getLogger(String.valueOf(CustomAccessDeniedHandler.class));
+    @Override
+    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null) {
+            Log.warning("User: " + authentication.getName() + " attempted to access the protected URL: "
+                    + request.getRequestURI());
+        }
+        response.sendRedirect(request.getContextPath() + "/doctorError");
+    }
+}

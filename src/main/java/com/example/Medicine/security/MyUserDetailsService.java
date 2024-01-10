@@ -1,4 +1,4 @@
-package com.example.Medicine.service;
+package com.example.Medicine.security;
 
 import com.example.Medicine.model.Nurse;
 import com.example.Medicine.model.Privilege;
