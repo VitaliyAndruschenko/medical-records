@@ -6,4 +6,13 @@
 
 .body__header {
     margin: 50px;
+    text-align: end;
+    padding: 30px;
+}
+
+.header__content__head {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    padding-left: 48%;
 }

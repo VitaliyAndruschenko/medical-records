@@ -3,25 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Main Title</title>
-  <link href="css/main.css" rel="stylesheet">
+  <link href="css/index.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,300&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-<h1 class="body__header">Система медицинских записей</h1>
-<div>
-  <ul>
-    <li>
-      <a th:href="@{/main}">Регистрация нового пациента</a>
-    </li>
-    <li>
-      <a th:href="@{/doctorAppointment}">Запись пациента на прием</a>
-    </li>
-    <li>
-      <a th:href="@{/medicalResearch}">Запись пациента на исследование</a>
-    </li>
-    <li>
-      <a th:href="@{/researches}">Создание нового исследования</a>
-    </li>
-  </ul>
-</div>
+  <section class="body__header">
+    <div class="container">
+      <div class="body__header__container">
+        <div class="header__content">
+          <h1 class="header__content__head">Система медицинских записей</h1>
+        </div>
+        <div class="header__content__list">
+          <ul class="content__list">
+            <div class="container__content__list__cont">
+              <li class="content__list__cont">
+                <a class="content__list__link" th:href="@{/main}">Регистрация нового пациента</a>
+              </li>
+              <li class="content__list__cont">
+                <a class="content__list__link" th:href="@{/doctorAppointment}">Запись пациента на прием</a>
+              </li>
+            </div>
+            <div class="container__content__list__cont">
+              <li class="content__list__cont">
+                <a class="content__list__link" th:href="@{/medicalResearch}">Запись пациента на исследование</a>
+              </li>
+              <li class="content__list__cont">
+                <a class="content__list__link" th:href="@{/researches}">Создание нового исследования</a>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+</section>
 </body>
 </html>
